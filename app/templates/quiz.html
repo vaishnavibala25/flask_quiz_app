@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Answer the following questions:</h1>
+    <form method="POST">
+        {% for idx, question in enumerate(questions) %}
+            <p>{{ idx + 1 }}. {{ question.question }}</p>
+            {% for option in question.options %}
+                <input type="radio" name="question-{{ idx }}" value="{{ option }}" required> {{ option }}<br>
+            {% endfor %}
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
